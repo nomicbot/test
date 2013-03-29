@@ -1,0 +1,19 @@
+{
+  "name": "nomic-game",
+  "version": "0.0.0",
+  "description": "A game of Nomic",
+  "main": "game.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "",
+  "keywords": [
+    "game"
+  ],
+  "author": "Brian Ford",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "lodash": "~1.1.1"
+  }
+}
