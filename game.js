@@ -5,7 +5,7 @@ var _ = require('lodash');
 // default behavior is that the vote must be unanimous
 // example API:
 // {  }
-exports.merge = function (arg) {
+exports.canMerge = function (arg) {
   // body
 };
 
@@ -13,15 +13,15 @@ exports.merge = function (arg) {
 // default behavior is that the vote must be unanimous
 // example API:
 // {  }
-exports.close = function (arg) {
+exports.canClose = function (arg) {
   // body
 };
 
-// decide whether or not to merge a given PR
-// default behavior is that the vote must be unanimous
+// decide whether or not to open a given PR
+// default behavior is whenever the code changes
 // example API:
 // {  }
-exports.open = function (arg) {
+exports.canOpen = function (arg) {
   // body
 };
 
@@ -30,8 +30,12 @@ exports.open = function (arg) {
 var play = exports.play = function () {
   var state = require('./state.json');
 
+  if (!canPlay(state)) {
+    return;
+  }
+
   // stop the game if there is already a winner
-  if (winningPlayer(state.players)) {
+  if (winningPlayer(state)) {
     return;
   }
 
@@ -43,9 +47,11 @@ var play = exports.play = function () {
   fs.writeFileSync('./state.json', JSON.stringify(state));
 };
 
+
 // determines when next move runs
-exports.canPlay = function (state) {
-  return Date.now() - state.lastTurn >= 1000 * 60 * 5;
+// move every 5 minutes
+var canPlay = exports.canPlay = function (state) {
+  return Date.now() - state.lastTurn >= (1000 * 60 * 5);
 }
 
 // returns winning player, else undefined
