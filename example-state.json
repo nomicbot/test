@@ -1,4 +1,5 @@
 {
+  "turn": 0,
   "players": {
     "btford": {
       "points": 10

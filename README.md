@@ -7,7 +7,7 @@ In short:
 > Nomic is a game in which changing the rules is a move. In that respect it differs from almost every other game.
 > The primary activity of Nomic is proposing changes in the rules, debating the wisdom of changing them in that way, voting on the changes, deciding what can and cannot be done afterwards, and doing it.
 > Even this core of the game, of course, can be changed.
-> —Peter Suber, The Paradox of Self-Amendment
+>    —Peter Suber, The Paradox of Self-Amendment
 
 This implementation of Nomic is to be played on Github.
 Changes to the rules are submitted as Pull Requests (PRs), and voted in the comments on Github.
