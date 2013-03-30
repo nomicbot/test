@@ -30,6 +30,7 @@ exports.canOpen = function (arg) {
 var play = exports.play = function () {
   var state = require('./state.json');
 
+  /*
   if (!canPlay(state)) {
     return;
   }
@@ -38,6 +39,12 @@ var play = exports.play = function () {
   if (winningPlayer(state)) {
     return;
   }
+  */
+
+  _.each(state.players, function (data, name) {
+    data.points += 1;
+    console.log(name + ' now has ' + data.points + ' points');
+  });
 
   // bookkeeping
   state.turn += 1;
@@ -68,3 +75,5 @@ var winningPlayer = exports.winner = function (state) {
 
   return winner;
 };
+
+play();
